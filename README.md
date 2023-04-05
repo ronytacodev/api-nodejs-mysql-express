@@ -4,3 +4,5 @@
 * node server. js (for start server 1st option)
 * npm i nodemon --save-dev (2nd option)
     * npm run start
+* npm i mysql express-myconnection (for use mysql)
+ 
