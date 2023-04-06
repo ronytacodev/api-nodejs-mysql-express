@@ -1,6 +1,7 @@
 const express = require('express')
 const routes = express.Router()
 
+// show all registers
 routes.get('/', (req, res)=>{
     req.getConnection((err, conn) => {
         if(err) return res.send(err)
@@ -13,6 +14,20 @@ routes.get('/', (req, res)=>{
     })
 })
 
+// show only register
+routes.get('/:id', (req, res)=>{
+    req.getConnection((err, conn) => {
+        if(err) return res.send(err)
+
+        conn.query('SELECT * FROM books WHERE id = ?',[req.params.id], (err, rows)=>{
+            if(err) return res.send(err)
+
+            res.json(rows)
+        })
+    })
+})
+
+// add registers
 routes.post('/', (req, res)=>{
     req.getConnection((err, conn) => {
         if(err) return res.send(err)
@@ -25,6 +40,7 @@ routes.post('/', (req, res)=>{
     })
 })
 
+// delete registers
 routes.delete('/:id', (req, res)=>{
     req.getConnection((err, conn) => {
         if(err) return res.send(err)
@@ -37,6 +53,7 @@ routes.delete('/:id', (req, res)=>{
     })
 })
 
+// update registers
 routes.put('/:id', (req, res)=>{
     req.getConnection((err, conn) => {
         if(err) return res.send(err)
