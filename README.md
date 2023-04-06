@@ -1,3 +1,12 @@
+
+
+## STACK TECH :wrench: :hammer:
+
+* Node Js
+* Express
+* Mysql
+* Extension VSCode REST CLIENT
+
 # Commands 
 * npm init -y 
 * npm install express
